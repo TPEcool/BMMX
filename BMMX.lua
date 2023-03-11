@@ -108,11 +108,15 @@ PackageID = "" --software package ID
 PackageName = "" --actual UI name
 PackageDesc = "" --UI package desc
 
+generateNewPackage = true --set to true to generate full package, false to extend another
+
 verifyAllLists()
 
-print("\"ID\" " .. "\"" .. PackageID .. "\"")
-print("\"Name\" ".."\""..PackageName.."\"")
-print("\"Desc\" ".."\""..PackageDesc.."\"")
+if generateNewPackage then
+        print("\"ID\" " .. "\"" .. PackageID .. "\"")
+        print("\"Name\" ".."\""..PackageName.."\"")
+        print("\"Desc\" ".."\""..PackageDesc.."\"")
+end
 
 if suggestionsEnabled and TrackStyleSuggestion~=nil then --generation of suggestions, if enabled
         print("")
