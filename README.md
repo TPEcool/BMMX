@@ -10,3 +10,5 @@ In order to run this script online, you will have to copy it and paste it into t
 The script has lots of comments so please make sure to read them. A lot of them contain really important information.
 # Contributing
 Before making any pull requests, please consult me on Discord. Go to https://discord.gg/gb7cp6asJF and then **Dev stuff**>**#contrib-requests** and tell me.
+# Website
+https://sites.google.com/view/bmmx-info/home-page
