@@ -4,72 +4,54 @@ print("// the BEE2 Music Adder Script")
 SamplePath = "custom/" -- don't change
 TrackPath = "music/" -- don't change
 ImgPath = "music_custom\\" --don't change
-version = "3.5" --don't change
+version = "4.0" --don't change
 style  = {["BTS"]="BEE2_BTS",["Clean"]="BEE2_CLEAN_STYLE",["Clean_original"]="BEE2_CLEAN_STYLE:BEE2_CLEAN_ORIGINAL",["Clean_grass"]="BEE2_CLEAN_GRASSS_STYLE:BEE2_GRASS_CLEAN",["Overgrown"]="BEE2_OVERGROWN:BEE2_OVERGROWN",["P1"]="BEE2_PORTAL_1:BEE2_PORTAL_1",["Devstyle_grey"]="BEE2_DEV_STYLE:BEE2_DEV_GRAY",["Devstyle_lightgrey"]="BEE2_DEV_STYLE:BEE2_DEV_BRIGHT_GRAY",["Devstyle_orange"]="BEE2_DEV_STYLE:BEE2_DEV_ORANGE",["Devstyle"]="BEE2_DEV_STYLE:BEE2_DEV_ORIGINAL",["Devstyle_reflective"]="BEE2_DEV_STYLE:BEE2_DEV_REFLECTIVITY",["Devstyle_white"]="BEE2_DEV_STYLE:BEE2_DEV_WHITE",["Gmod"]="BEE2_DEV_STYLE:BEE2_GMOD",["Rattman"]="BEE2_DEV_STYLE:BEE2_RATMAN_Drgregs",["OldAperture_50s"]="BEE2_OLD_AP:BEE2_1950s",["OldAperture_60s"]="BEE2_OLD_AP:BEE2_1960s",["OldAperture_70s"]="BEE2_OLD_AP:BEE2_1970s",["OldAperture_80s"]="BEE2_OLD_AP:BEE2_1980s"} --dont change, suggestion styles
 styleAuthors = {["BTS"]="TeamSpen210",["Clean"]="Valve, Carl Kenner, TeamSpen210, Valve, Valve",["Clean_original"]="Valve",["Clean_grass"]="joethegamer",["Overgrown"]="TeamSpen210",["P1"]="Carl Kenner, TeamSpen210, Carl Kenner, TeamSpen210, Valve, Valve, Valve, Valve, Valve, Valve",["Devstyle_grey"]="Drgregs", ["Devstyle_lightgrey"]="Drgregs", ["Devstyle_orange"]="Drgregs", ["Devstyle"]="Drgregs", ["Devstyle_reflective"]="Drgregs", ["Devstyle_white"]="Drgregs", ["Gmod"]="Drgregs", ["Rattman"]="VALVE, Drgregs.", ["OldAperture_50s"]="Carl Kenner, TeamSpen210, Critfish",["OldAperture_60s"]="Carl Kenner, TeamSpen210, Critfish",["OldAperture_70s"]="Carl Kenner, TeamSpen210",["OldAperture_80s"]="Carl Kenner, TeamSpen210"} --dont change, suggestion style authors
 styleNames = {["BTS"]="Behind The Scenes",["Clean"]="Clean",["Clean_original"]="Clean (Original Textures)",["Clean_grass"]="Grass Clean",["Overgrown"]="Overgrown",["P1"]="Portal 1 Style",["Devstyle_grey"]="Gray Developer Style", ["Devstyle_lightgrey"]="Lighter Gray Developer Style", ["Devstyle_orange"]="Orange Developer Style", ["Devstyle"]="Original Developer Style", ["Devstyle_reflective"]="Reflective Developer Style", ["Devstyle_white"]="White Developer Style", ["Gmod"]="Garry's Mod Style", ["Rattman"]="Ratman", ["OldAperture_50s"]="1950s Old Aperture",["OldAperture_60s"]="1960s Old Aperture",["OldAperture_70s"]="1970s Old Aperture",["OldAperture_80s"]="1980s Old Aperture"} --dont change, suggestion style names
 
-function verifyAllLists() --checks if any of the lists have quotes
+function fixUpAllLists() --checks if any of the lists have quotes
         
         for f=1,#Tracks do
-                if string.match(Tracks[f],"\"") then
-                        error("Critical runtime exception: tracks list contains \" ! Instead, use the ' character!")
-                end
+                Tracks[f]=string.gsub(Tracks[f],"\"",'\\"')
         end
         
         for f=1,#TrackLen do
-                if string.match(TrackLen[f],"\"") then
-                        error("Critical runtime exception: lengths list contains \" ! Instead, use the ' character!")
-                end
+                TrackLen[f]=string.gsub(TrackLen[f],"\"",'\\"')
         end
         
         for f=1,#TrackImgSmall do
-                if string.match(TrackImgSmall[f],"\"") then
-                        error("Critical runtime exception: small image list contains \" ! Instead, use the ' character!")
-                end
+                TrackImgSmall[f]=string.gsub(TrackImgSmall[f],"\"",'\\"')
         end
         
         for f=1,#TrackImgLarge do
-                if string.match(TrackImgLarge[f],"\"") then
-                        error("Critical runtime exception: large image list contains \" ! Instead, use the ' character!")
-                end
+                TrackImgLarge[f]=string.gsub(TrackImgLarge[f],"\"",'\\"')
         end
         
         for f=1,#TrackDescs do
-                if string.match(TrackDescs[f],"\"") then
-                        error("Critical runtime exception: descriptions list contains \" ! Instead, use the ' character!")
-                end
+                TrackDescs[f]=string.gsub(TrackDescs[f],"\"",'\\"')
         end
         
         for f=1,#TrackNames do
-                if string.match(TrackNames[f],"\"") then
-                        error("Critical runtime exception: names list contains \" ! Instead, use the ' character!")
-                end
+                TrackNames[f]=string.gsub(TrackNames[f],"\"",'\\"')
         end
         
         for f=1,#TrackSmallNames do
-                if string.match(TrackSmallNames[f],"\"") then
-                        error("Critical runtime exception: short names list contains \" ! Instead, use the ' character!")
-                end
+                TrackSmallNames[f]=string.gsub(TrackSmallNames[f],"\"",'\\"')
         end
         
         for f=1,#TrackAuthors do
-                if string.match(TrackAuthors[f],"\"") then
-                        error("Critical runtime exception: authors list contains \" ! Instead, use the ' character!")
-                end
+                TrackAuthors[f]=string.gsub(TrackAuthors[f],"\"",'\\"')
         end
         
         for f=1,#TrackFiles do
-                if string.match(TrackFiles[f],"\"") then
-                        error("Critical runtime exception: full track filenames list contains \" ! Instead, use the ' character!")
-                end
+                TrackFiles[f]=string.gsub(TrackFiles[f],"\"",'\\"')
         end
         
         for f=1,#TrackSamples do
-                if string.match(TrackSamples[f],"\"") then
-                        error("Critical runtime exception: track sample filenames list contains \" ! Instead, use the ' character!")
-                end
+                TrackSamples[f]=string.gsub(TrackSamples[f],"\"",'\\"')
         end
+        
+        print('// List fixup function was enabled upon compilaton, " replaced with \\"')
         
 end
 
@@ -84,6 +66,7 @@ end
 --ALL filenames MUST include extensions
 --.ogg appears to be supported but .wav, 44100 hertz, stereo always works
 
+enableListFixup = true -- set to true to automatically fix double-quotes in all lists
 TrackIDPrefix = "" --prefix of the track IDs, i.e. "ambient" could cause conflicts, but "mde_ambient" would likely not
 --adding an underscore to the end of the prefix is NOT NEEDED, it is automatically added
 Tracks = {""} --all songs (IDs)
@@ -93,7 +76,7 @@ TrackImgLarge = {""} --all full images (4:3 ratio, rectangle)
 TrackDescs = {""} --descriptions
 TrackNames = {""} --full track names (>3 chars)
 TrackSmallNames = {""} --short track names (<20 chars)
-TrackAuthors = {""} --track authors
+TrackAuthors = {""} --track authors, separate with commas
 TrackFiles = {""} --track filenames
 TrackSamples = {""} --track sample filenames, each must be EXACTLY 10 seconds long
 
@@ -110,9 +93,11 @@ PackageDesc = "" --UI package desc
 generateNewPackage = true --set to true to generate full package, false to extend another
 onlyGenerateSuggestions = false --set to true to ONLY generate suggestions
 
-verifyAllLists()
+if enableListFixup then
+        fixUpAllLists()
+end
 
-if generateNewPackage then
+if generateNewPackage and not onlyGenerateSuggestions then
         print("\"ID\" " .. "\"" .. PackageID .. "\"")
         print("\"Name\" ".."\""..PackageName.."\"")
         print("\"Desc\" ".."\""..PackageDesc.."\"")
